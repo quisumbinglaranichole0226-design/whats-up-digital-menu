@@ -119,6 +119,7 @@
       position: relative;
       z-index: 1;
       text-align: center;
+      animation: hero-enter .9s cubic-bezier(.2,.75,.25,1) both;
     }
 
     .eyebrow {
@@ -235,22 +236,36 @@
       overflow: hidden;
       color: var(--cream-light);
       background-color: var(--maroon);
-      background-image:
-        linear-gradient(to bottom, rgba(28,14,14,.15), rgba(28,14,14,.76)),
-        var(--card-image);
-      background-position: center;
-      background-size: cover;
       text-decoration: none;
+      box-shadow: 0 8px 20px rgba(55,35,24,.08);
+      transition:
+        transform .35s cubic-bezier(.2,.75,.25,1),
+        box-shadow .35s ease;
     }
 
+    .category::before,
     .category::after {
       content: "";
       position: absolute;
       inset: 0;
+      pointer-events: none;
+    }
+
+    .category::before {
+      z-index: -2;
+      background-image: var(--card-image);
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.01);
+      transition: transform .65s cubic-bezier(.2,.75,.25,1);
+    }
+
+    .category::after {
       z-index: -1;
+      background: linear-gradient(to bottom, rgba(28,14,14,.15), rgba(28,14,14,.78));
       border: 1px solid rgba(255,255,255,.14);
       border-radius: inherit;
-      pointer-events: none;
+      transition: background .35s ease;
     }
 
     .category:nth-child(2),
@@ -286,11 +301,66 @@
       font-family: "Playfair Display", serif;
       font-size: clamp(1.35rem, 3vw, 1.8rem);
       line-height: 1.1;
+      transition: transform .35s cubic-bezier(.2,.75,.25,1), background .35s ease;
     }
 
     .category-title span:last-child {
       font-family: "DM Sans", sans-serif;
       font-size: 1.2rem;
+    }
+
+    @media (hover: hover) {
+      .category:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 18px 34px rgba(55,35,24,.2);
+      }
+
+      .category:hover::before { transform: scale(1.08); }
+
+      .category:hover::after {
+        background: linear-gradient(to bottom, rgba(28,14,14,.06), rgba(28,14,14,.64));
+      }
+
+      .category:hover .category-title {
+        transform: translateY(-4px);
+        background: rgba(23,63,53,.9);
+      }
+    }
+
+    .category:active {
+      transform: scale(.975);
+      transition-duration: .12s;
+    }
+
+    .reveal-ready .category {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .reveal-ready .category.is-visible {
+      animation: card-reveal .65s cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms) both;
+    }
+
+    @keyframes hero-enter {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes card-reveal {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .welcome {
@@ -491,6 +561,12 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
+      .hero-content { animation: none; }
+      .reveal-ready .category {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -605,5 +681,29 @@
     <strong>WHAT’S UP?</strong>
     Kitchen • Drinkery • Café
   </footer>
+
+  <script>
+    const cards = document.querySelectorAll(".category");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      document.documentElement.classList.add("reveal-ready");
+
+      const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const index = Number(entry.target.dataset.order || 0);
+          entry.target.style.setProperty("--reveal-delay", `${Math.min(index * 85, 425)}ms`);
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.16 });
+
+      cards.forEach((card, index) => {
+        card.dataset.order = index;
+        cardObserver.observe(card);
+      });
+    }
+  </script>
 </body>
 </html>
