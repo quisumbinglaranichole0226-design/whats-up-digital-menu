@@ -481,15 +481,38 @@
     }
 
     .directions-link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
       margin-top: 1rem;
-      color: #e5cfa8;
+      min-height: 3rem;
+      padding: .7rem 1rem;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      color: var(--emerald-deep);
+      background: var(--cream);
       font-weight: 700;
-      text-underline-offset: .25rem;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,.16);
+      transition: transform .2s ease, background .2s ease;
     }
 
     .directions-link:hover,
-    .directions-link:focus-visible { color: #fff3dc; }
+    .directions-link:focus-visible {
+      color: var(--emerald-deep);
+      background: #fff7e9;
+      transform: translateY(-2px);
+    }
+
+    .directions-link::after {
+      content: "";
+      width: .55rem;
+      height: .55rem;
+      border-top: 2px solid currentColor;
+      border-right: 2px solid currentColor;
+      transform: rotate(45deg);
+    }
 
     footer {
       padding: 2rem 1rem;
@@ -670,7 +693,7 @@
               162 Senator Benigno S. Aquino Jr. Avenue<br>
               Mandurriao, Iloilo City 5000, Iloilo
             </address>
-            <a class="directions-link" href="https://www.google.com/maps/search/?api=1&amp;query=What%27s%20Up%20162%20Senator%20Benigno%20S.%20Aquino%20Jr.%20Ave%20Mandurriao%20Iloilo%20City" target="_blank" rel="noopener noreferrer">Get directions ↗</a>
+            <a class="directions-link" href="https://www.google.com/maps/search/?api=1&amp;query=What%27s%20Up%20162%20Senator%20Benigno%20S.%20Aquino%20Jr.%20Ave%20Mandurriao%20Iloilo%20City" target="_blank" rel="noopener noreferrer">Get directions</a>
           </div>
         </div>
       </div>
