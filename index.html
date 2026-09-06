@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What’s Up? | Kitchen • Drinkery • Café</title>
+  <meta name="description" content="Explore the food, drinks, coffee, and house favorites at What’s Up? Kitchen • Drinkery • Café.">
+  <meta name="theme-color" content="#451f24">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --maroon: #451f24;
+      --maroon-soft: #653138;
+      --olive: #55573a;
+      --olive-dark: #3f412b;
+      --walnut: #593722;
+      --cream: #eee6d8;
+      --cream-light: #faf6ee;
+      --ink: #2e241e;
+      --line: rgba(69, 31, 36, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream-light);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 20;
+      padding: .7rem 1rem;
+      color: var(--cream-light);
+      background: var(--maroon);
+    }
+
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 10;
+    }
+
+    .nav {
+      width: min(1120px, calc(100% - 2rem));
+      margin: auto;
+      padding: 1.2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--cream-light);
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+
+    .nav-link {
+      padding: .58rem .95rem;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--maroon);
+      background: var(--cream-light);
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--cream-light);
+      background:
+        linear-gradient(rgba(39, 14, 18, .62), rgba(39, 14, 18, .76)),
+        url("hero-image.jpg") center / cover no-repeat,
+        var(--maroon);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(69,31,36,.18), transparent 45%, rgba(63,65,43,.14));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      width: min(900px, calc(100% - 2rem));
+      padding: 8rem 0 5rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: #d9c5aa;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 0 auto;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.7rem, 11vw, 8rem);
+      line-height: .9;
+      letter-spacing: -.045em;
+    }
+
+    .hero-copy {
+      max-width: 590px;
+      margin: 1.7rem auto 2rem;
+      padding: .65rem 1rem;
+      border-radius: .65rem;
+      color: var(--cream-light);
+      background: rgba(28, 13, 13, .48);
+      box-shadow: 0 8px 25px rgba(0,0,0,.12);
+      backdrop-filter: blur(4px);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      min-height: 3.25rem;
+      padding: .8rem 1.35rem;
+      border-radius: 999px;
+      color: var(--maroon);
+      background: var(--cream);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .primary-button:hover,
+    .primary-button:focus-visible {
+      transform: translateY(-2px);
+      background: #fffaf1;
+    }
+
+    .primary-button span { font-size: 1.25rem; }
+
+    main {
+      position: relative;
+      z-index: 2;
+    }
+
+    .menu-section {
+      width: min(1120px, calc(100% - 2rem));
+      margin: -2.6rem auto 0;
+      padding: clamp(2rem, 5vw, 4rem);
+      border-radius: 1.4rem;
+      background: var(--cream);
+      box-shadow: 0 18px 55px rgba(62, 41, 28, .12);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--maroon);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      line-height: 1.05;
+    }
+
+    .section-heading p {
+      max-width: 420px;
+      margin: 0;
+      color: #6b5a4d;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .category {
+      min-height: 12rem;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      color: var(--cream-light);
+      background-color: var(--maroon);
+      background-image:
+        linear-gradient(to bottom, rgba(28,14,14,.15), rgba(28,14,14,.76)),
+        var(--card-image);
+      background-position: center;
+      background-size: cover;
+      text-decoration: none;
+    }
+
+    .category::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .category-number {
+      align-self: flex-start;
+      padding: .3rem .55rem;
+      border-radius: 999px;
+      color: var(--cream-light);
+      background: rgba(37, 18, 17, .68);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      opacity: 1;
+      backdrop-filter: blur(4px);
+    }
+
+    .category-title {
+      align-self: flex-start;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .55rem .8rem .65rem;
+      border-radius: .55rem;
+      color: var(--cream-light);
+      background: rgba(37, 18, 17, .76);
+      box-shadow: 0 7px 20px rgba(0,0,0,.16);
+      backdrop-filter: blur(5px);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      line-height: 1.1;
+    }
+
+    .category-title span:last-child {
+      font-family: "DM Sans", sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .welcome {
+      width: min(1120px, calc(100% - 2rem));
+      margin: auto;
+      padding: clamp(4.5rem, 9vw, 8rem) 0;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(2rem, 7vw, 6rem);
+      align-items: center;
+    }
+
+    .welcome-mark {
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--cream);
+      background: var(--maroon);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      box-shadow: 1.2rem 1.2rem 0 var(--olive);
+    }
+
+    .welcome h2 {
+      margin: 0 0 1rem;
+      color: var(--maroon);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.05;
+    }
+
+    .welcome p {
+      max-width: 600px;
+      margin: 0;
+      color: #635247;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      padding: 2rem 1rem;
+      color: rgba(250,246,238,.75);
+      background: var(--maroon);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: .25rem;
+      color: var(--cream-light);
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+    }
+
+    :focus-visible {
+      outline: 3px solid #d2a96d;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 74vh;
+        background:
+          linear-gradient(rgba(39, 14, 18, .64), rgba(39, 14, 18, .79)),
+          url("hero-image.jpg") center / cover no-repeat,
+          var(--maroon);
+      }
+
+      .hero-content { padding-top: 7rem; }
+
+      .menu-section {
+        margin-top: -1.7rem;
+        padding: 1.5rem;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .category-grid { grid-template-columns: 1fr 1fr; }
+      .category { min-height: 10rem; }
+
+      .welcome {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .welcome-mark {
+        width: min(15rem, 68vw);
+        margin: auto;
+      }
+
+      .welcome p { margin: auto; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-link { padding: .48rem .75rem; }
+      .category-grid { grid-template-columns: 1fr; }
+      .category { min-height: 8.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#menu">Skip to menu</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="What’s Up? home">WHAT’S UP?</a>
+      <a class="nav-link" href="#menu">Explore Menu</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Kitchen • Drinkery • Café</p>
+      <h1>WHAT’S UP?</h1>
+      <p class="hero-copy">Comforting plates, refreshing drinks, and coffee worth slowing down for.</p>
+      <a class="primary-button" href="#menu">View Our Menu <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <main>
+    <section class="menu-section" id="menu" aria-labelledby="menu-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Something for every craving</p>
+          <h2 id="menu-title">Explore the menu</h2>
+        </div>
+        <p>From shareable starters and hearty mains to cocktails, cold beer, and freshly made coffee.</p>
+      </div>
+
+      <div class="category-grid">
+        <article class="category" style="--card-image: url('appetizers.jpg')">
+          <span class="category-number">01</span>
+          <span class="category-title"><span>Appetizers &amp; Sides</span></span>
+        </article>
+        <article class="category" style="--card-image: url('main-course.jpg')">
+          <span class="category-number">02</span>
+          <span class="category-title"><span>Main Course</span></span>
+        </article>
+        <article class="category" style="--card-image: url('pizza-pasta.jpg')">
+          <span class="category-number">03</span>
+          <span class="category-title"><span>Pizza &amp; Pasta</span></span>
+        </article>
+        <article class="category" style="--card-image: url('cocktails.jpg')">
+          <span class="category-number">04</span>
+          <span class="category-title"><span>Cocktails &amp; Mocktails</span></span>
+        </article>
+        <article class="category" style="--card-image: url('beer-bottles.jpg')">
+          <span class="category-number">05</span>
+          <span class="category-title"><span>Beer &amp; Bottles</span></span>
+        </article>
+        <article class="category" style="--card-image: url('coffee.jpg')">
+          <span class="category-number">06</span>
+          <span class="category-title"><span>Coffee &amp; Specials</span></span>
+        </article>
+      </div>
+    </section>
+
+    <section class="welcome" aria-labelledby="welcome-title">
+      <div class="welcome-mark" aria-hidden="true">?</div>
+      <div>
+        <p class="eyebrow">Good food. Good drinks. Good company.</p>
+        <h2 id="welcome-title">Your table is waiting.</h2>
+        <p>Come hungry, stay for a drink, and discover a new favorite. What’s Up? brings the kitchen, drinkery, and café together in one easygoing place.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>WHAT’S UP?</strong>
+    Kitchen • Drinkery • Café
+  </footer>
+</body>
+</html>
