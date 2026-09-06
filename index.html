@@ -334,11 +334,11 @@
 
     .reveal-ready .category {
       opacity: 0;
-      transform: translateY(28px);
+      transform: translateY(20px);
     }
 
     .reveal-ready .category.is-visible {
-      animation: card-reveal .65s cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms) both;
+      animation: card-reveal 1.05s cubic-bezier(.16,1,.3,1) var(--reveal-delay, 0ms) both;
     }
 
     @keyframes hero-enter {
@@ -355,7 +355,7 @@
     @keyframes card-reveal {
       from {
         opacity: 0;
-        transform: translateY(28px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -693,7 +693,7 @@
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           const index = Number(entry.target.dataset.order || 0);
-          entry.target.style.setProperty("--reveal-delay", `${Math.min(index * 85, 425)}ms`);
+          entry.target.style.setProperty("--reveal-delay", `${Math.min(index * 120, 600)}ms`);
           entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
         });
