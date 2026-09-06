@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cocktails &amp; Mocktails | What’s Up?</title>
+<meta name="description" content="Explore cocktails, mocktails, chasers, and energy drinks at What’s Up? in Iloilo City.">
+<meta name="theme-color" content="#173f35">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:Higuen;src:url("higuen.woff2") format("woff2");font-display:swap}
+:root{--maroon:#451f24;--emerald:#173f35;--deep:#102e27;--cream:#eee6d8;--light:#faf6ee;--ink:#2e241e;--muted:#6b5a4d;--line:rgba(69,31,36,.16)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--light);font-family:Lora,serif;line-height:1.6}a{color:inherit}
+.site-header{position:absolute;inset:0 0 auto;z-index:10}.nav{width:min(1120px,calc(100% - 2rem));margin:auto;padding:1.2rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:var(--light)}
+.brand{font:700 clamp(1.3rem,3vw,1.7rem) "Playfair Display",serif;text-decoration:none}.back{display:inline-flex;align-items:center;gap:.55rem;padding:.6rem .95rem;border:1px solid #ffffff40;border-radius:999px;background:var(--emerald);font:600 .88rem "DM Sans",sans-serif;text-decoration:none;transition:.2s}.back:before{content:"";width:.5rem;height:.5rem;border-left:2px solid;border-bottom:2px solid;transform:rotate(45deg)}.back:hover{background:#205747;transform:translateY(-2px)}
+.hero{min-height:68vh;display:grid;place-items:end center;color:var(--light);background:linear-gradient(#19080d47,#230c12db),url("cocktails-hero.jpg") center/cover no-repeat,var(--maroon)}.hero-content{width:min(1120px,calc(100% - 2rem));padding:8rem 0 5rem;animation:enter 1.55s cubic-bezier(.16,1,.3,1) .12s both}
+.eyebrow{margin:0 0 .85rem;color:#dfcaa8;font:700 .78rem "DM Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase}h1,h2{font-family:Higuen,"Playfair Display",serif}h1{max-width:900px;margin:0;font-size:clamp(3rem,8vw,6.5rem);line-height:.94;letter-spacing:-.04em}.hero-copy{max-width:570px;margin:1.2rem 0 0;color:#faf6eed1}
+main{width:min(1120px,calc(100% - 2rem));margin:auto;padding:clamp(3.5rem,7vw,7rem) 0}.menu-section+.menu-section{margin-top:clamp(4rem,8vw,7rem)}.heading{display:grid;grid-template-columns:.8fr 1.2fr;gap:2rem;align-items:end;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line)}.heading h2{margin:0;color:var(--maroon);font-size:clamp(2.2rem,5vw,3.8rem);line-height:1}.heading p{max-width:500px;margin:0;color:var(--muted)}
+.drink-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}.drink{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:.85rem;background:var(--cream);box-shadow:0 7px 20px #402a1d0d;opacity:0;transform:translateY(16px)}.drink.is-visible{animation:item-enter .9s cubic-bezier(.16,1,.3,1) var(--delay,0ms) both}.drink h3,.price{margin:0;font-family:"DM Sans",sans-serif;font-size:1rem}.drink h3{color:var(--deep);font-weight:600}.price{color:var(--maroon);font-weight:700;white-space:nowrap}
+.feature{margin:clamp(4rem,8vw,7rem) 0;display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;border-radius:1.2rem;color:var(--light);background:var(--deep)}.feature-image{min-height:380px;background:url("mocktails-feature.jpg") center/cover no-repeat #593722}.feature-copy{padding:clamp(2rem,5vw,4rem);align-self:center}.feature-copy h2{margin:0 0 1rem;font-size:clamp(2rem,4vw,3.4rem);line-height:1.05}.feature-copy p{margin:0;color:#faf6eebf}
+.note{margin:2rem 0 0;color:var(--muted);font:400 .8rem "DM Sans",sans-serif;text-align:center}footer{padding:2rem 1rem;border-top:.45rem solid var(--emerald);color:#faf6eebf;background:var(--maroon);font:400 .9rem "DM Sans",sans-serif;text-align:center}footer strong{display:block;color:var(--light);font:600 1.2rem "Playfair Display",serif}
+@keyframes enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@keyframes item-enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}:focus-visible{outline:3px solid #d2a96d;outline-offset:4px}
+@media(max-width:760px){.hero{min-height:62vh}.heading,.feature{grid-template-columns:1fr}.drink-grid{grid-template-columns:1fr}.feature-image{min-height:290px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.hero-content,.drink{opacity:1;transform:none;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="site-header"><nav class="nav" aria-label="Page navigation"><a class="brand" href="index.html">WHAT’S UP?</a><a class="back" href="index.html#menu">All Menus</a></nav></header>
+<section class="hero"><div class="hero-content"><p class="eyebrow">The drinks menu</p><h1>Cocktails &amp; Mocktails</h1><p class="hero-copy">Classic pours, colorful mixes, and alcohol-free favorites for the table.</p></div></section>
+<main>
+<section class="menu-section"><div class="heading"><div><p class="eyebrow">From the bar</p><h2>Cocktails</h2></div><p>House signatures and familiar favorites, mixed to order.</p></div><div class="drink-grid">
+<article class="drink"><h3>Amaretto Sour</h3><span class="price">₱250</span></article><article class="drink"><h3>Jameson Signature</h3><span class="price">₱260</span></article>
+<article class="drink"><h3>Aperol WU</h3><span class="price">₱250</span></article><article class="drink"><h3>Espresso Martini</h3><span class="price">₱260</span></article>
+<article class="drink"><h3>Old Fashioned</h3><span class="price">₱250</span></article><article class="drink"><h3>Mango Margarita</h3><span class="price">₱260</span></article>
+<article class="drink"><h3>Sangria</h3><span class="price">₱250</span></article><article class="drink"><h3>Tequila Red Bull</h3><span class="price">₱270</span></article>
+<article class="drink"><h3>Gin Tonic</h3><span class="price">₱250</span></article><article class="drink"><h3>Vodka Red Bull</h3><span class="price">₱270</span></article>
+<article class="drink"><h3>Whiskey Sour</h3><span class="price">₱250</span></article><article class="drink"><h3>Aperol Margarita</h3><span class="price">₱280</span></article>
+<article class="drink"><h3>Jägerbomb</h3><span class="price">₱250</span></article><article class="drink"><h3>Adios</h3><span class="price">₱290</span></article>
+<article class="drink"><h3>WU Special Request</h3><span class="price">₱320</span></article>
+</div></section>
+<section class="feature"><div class="feature-image" role="img" aria-label="Colorful mocktails"></div><div class="feature-copy"><p class="eyebrow">Zero-proof favorites</p><h2>All the color, without the alcohol.</h2><p>Choose a bright, refreshing mocktail for your next round.</p></div></section>
+<section class="menu-section"><div class="heading"><div><p class="eyebrow">Alcohol-free</p><h2>Mocktails</h2></div><p>Bright and refreshing drinks for every kind of night.</p></div><div class="drink-grid">
+<article class="drink"><h3>Purple Lychee Haze</h3><span class="price">₱190</span></article><article class="drink"><h3>Blueberry Bliss</h3><span class="price">₱190</span></article>
+<article class="drink"><h3>Strawberry Paradise</h3><span class="price">₱190</span></article><article class="drink"><h3>Kiwi Apple Fizz</h3><span class="price">₱190</span></article>
+<article class="drink"><h3>WU Special Request</h3><span class="price">₱220</span></article>
+</div></section>
+<section class="menu-section"><div class="heading"><div><p class="eyebrow">Complete your order</p><h2>Chasers &amp; Energy Drinks</h2></div><p>Simple additions for your preferred pour.</p></div><div class="drink-grid">
+<article class="drink"><h3>Bottled Water</h3><span class="price">₱55</span></article><article class="drink"><h3>Soda</h3><span class="price">₱85</span></article>
+<article class="drink"><h3>Tonic / Soda Water</h3><span class="price">₱115</span></article><article class="drink"><h3>Ginger Ale</h3><span class="price">₱115</span></article>
+<article class="drink"><h3>Red Bull Energy Drink</h3><span class="price">₱150</span></article><article class="drink"><h3>Red Bull Sugarfree</h3><span class="price">₱150</span></article>
+</div><p class="note">All prices are subject to a 5% service charge.</p></section>
+</main>
+<footer><strong>WHAT’S UP?</strong>Kitchen • Drinkery • Café</footer>
+<script>
+const items=document.querySelectorAll(".drink"),reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(reduced||!("IntersectionObserver" in window)){items.forEach(item=>item.classList.add("is-visible"))}else{const observer=new IntersectionObserver((entries,watcher)=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;const index=Number(entry.target.dataset.order||0);entry.target.style.setProperty("--delay",`${Math.min(index*75,375)}ms`);entry.target.classList.add("is-visible");watcher.unobserve(entry.target)})},{threshold:.12});items.forEach((item,index)=>{item.dataset.order=index%6;observer.observe(item)})}
+</script>
+</body>
+</html>
