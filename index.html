@@ -303,15 +303,15 @@
       align-items: center;
     }
 
-    .welcome-mark {
+    .welcome-photo {
       aspect-ratio: 1;
-      display: grid;
-      place-items: center;
       border-radius: 50%;
-      color: var(--cream);
       background: var(--emerald);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(4rem, 10vw, 8rem);
+      background-image:
+        linear-gradient(rgba(23,63,53,.12), rgba(69,31,36,.2)),
+        url("about-image.jpg");
+      background-position: center;
+      background-size: cover;
       box-shadow: 1.2rem 1.2rem 0 var(--maroon);
     }
 
@@ -472,7 +472,7 @@
         text-align: center;
       }
 
-      .welcome-mark {
+      .welcome-photo {
         width: min(15rem, 68vw);
         margin: auto;
       }
@@ -524,9 +524,9 @@
       </div>
 
       <div class="category-grid">
-        <article class="category" style="--card-image: url('appetizers.jpg')">
+        <article class="category" style="--card-image: url('bites-appetizers.jpg')">
           <span class="category-number">01</span>
-          <span class="category-title"><span>Appetizers &amp; Sides</span></span>
+          <span class="category-title"><span>Bites &amp; Appetizers</span></span>
         </article>
         <article class="category" style="--card-image: url('main-course.jpg')">
           <span class="category-number">02</span>
@@ -552,7 +552,7 @@
     </section>
 
     <section class="welcome" aria-labelledby="welcome-title">
-      <div class="welcome-mark" aria-hidden="true">?</div>
+      <div class="welcome-photo" role="img" aria-label="The atmosphere at What’s Up?"></div>
       <div>
         <p class="eyebrow">Food • Drinks • Coffee • Music</p>
         <h2 id="welcome-title">Stay for the night.</h2>
