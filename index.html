@@ -72,13 +72,6 @@
       letter-spacing: .02em;
     }
 
-    .hero .eyebrow,
-    .nav-link,
-    .primary-button,
-    .directions-link {
-      font-family: "DM Sans", sans-serif;
-    }
-
     .nav-link {
       padding: .58rem .95rem;
       border: 1px solid rgba(255,255,255,.22);
@@ -235,7 +228,7 @@
       padding: 1.4rem;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: space-between;
       border: 1px solid var(--line);
       border-radius: 1rem;
       position: relative;
@@ -280,6 +273,19 @@
       background-color: var(--emerald);
     }
 
+    .category-number {
+      align-self: flex-start;
+      padding: .3rem .55rem;
+      border-radius: 999px;
+      color: var(--cream-light);
+      background: rgba(37, 18, 17, .68);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      opacity: 1;
+      backdrop-filter: blur(4px);
+    }
+
     .category-title {
       align-self: flex-start;
       display: flex;
@@ -296,6 +302,11 @@
       font-size: clamp(1.35rem, 3vw, 1.8rem);
       line-height: 1.1;
       transition: transform .35s cubic-bezier(.2,.75,.25,1), background .35s ease;
+    }
+
+    .category-title span:last-child {
+      font-family: "DM Sans", sans-serif;
+      font-size: 1.2rem;
     }
 
     @media (hover: hover) {
@@ -613,21 +624,27 @@
 
       <div class="category-grid">
         <article class="category" style="--card-image: url('bites-appetizers.jpg')">
+          <span class="category-number">01</span>
           <span class="category-title"><span>Bites &amp; Appetizers</span></span>
         </article>
         <article class="category" style="--card-image: url('main-course.jpg')">
+          <span class="category-number">02</span>
           <span class="category-title"><span>Main Course</span></span>
         </article>
         <article class="category" style="--card-image: url('pizza-pasta.jpg')">
+          <span class="category-number">03</span>
           <span class="category-title"><span>Pizza &amp; Pasta</span></span>
         </article>
         <article class="category" style="--card-image: url('cocktails.jpg')">
+          <span class="category-number">04</span>
           <span class="category-title"><span>Cocktails &amp; Mocktails</span></span>
         </article>
         <article class="category" style="--card-image: url('beer-bottles.jpg')">
+          <span class="category-number">05</span>
           <span class="category-title"><span>Beer &amp; Bottles</span></span>
         </article>
         <article class="category" style="--card-image: url('coffee.jpg')">
+          <span class="category-number">06</span>
           <span class="category-title"><span>Coffee &amp; Specials</span></span>
         </article>
       </div>
